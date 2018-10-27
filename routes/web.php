@@ -11,6 +11,9 @@
 |
 */
 
+Auth::routes();
+Route::get('/films', 'FilmsController@index')->name('films');
+Route::get('{slug}', ['as' => 'films.show', 'uses' => 'FilmsController@show']);
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect('/films');
+})->name('home');
