@@ -3,10 +3,10 @@
    * @var int $rating
    */
 @endphp
-<ul class="list-unstyled star-rating">
+<ul class="list-unstyled star-rating ">
   @for($i = 1; $i <= 5; $i++)
-    <li>
-      <i class="fa {{ $rating >= $i  ? 'fa-star' : 'fa-star-o'}}"></i>
+    <li class="list-inline-item">
+      <i class=" {{ $rating >= $i  ? 'fas' : 'far'}} fa-star fa-sm" style="color: cornflowerblue;"></i>
     </li>
   @endfor
 </ul>

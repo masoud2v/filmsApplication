@@ -18,9 +18,6 @@ class FilmsController extends Controller
     {
         $films = Film::latest('release_date')->with('photo')
             ->paginate(1);
-
-//        dd($films);
-
         return view('films', [
             'films'   => $films,
         ]);
@@ -90,8 +87,10 @@ class FilmsController extends Controller
 //    }
     public function show($slug) {
         $film = Film::where('slug', '=', $slug)->firstOrFail();
+        $comments = $film->comments()->latest()->get();
         return view('film', [
             'film'     => $film,
+            'comments' => $comments
         ]);
     }
     /**
